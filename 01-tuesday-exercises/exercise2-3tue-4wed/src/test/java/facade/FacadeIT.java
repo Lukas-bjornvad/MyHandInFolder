@@ -21,6 +21,8 @@ import static org.junit.Assert.*;
 public class FacadeIT {
     
     public FacadeIT() {
+        Facade instance = new Facade();
+        instance.populate();
     }
     
     @BeforeClass
@@ -61,7 +63,6 @@ public class FacadeIT {
         System.out.println("findByLastName");
         String name = "Larson";
         Facade instance = new Facade();
-        instance.populate();
         int expResult = 2;
         List<Costumer> result = instance.findByLastName(name);
         assertEquals(expResult, result.size());

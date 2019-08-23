@@ -25,6 +25,8 @@ import static org.junit.Assert.*;
 public class BankFacadeIT {
     
     public BankFacadeIT() {
+        BankFacade instance = new BankFacade();
+        instance.populate();
     }
     
     @BeforeClass
@@ -51,7 +53,6 @@ public class BankFacadeIT {
         System.out.println("getCustomerByID");
         int id = 1;
         BankFacade instance = new BankFacade();
-        instance.populate();
         CustomerDTO expResult = new CustomerDTO(new BankCustomer("Freddy","Darrens","FDbank",1000, 12, "Has serious halitosis"));
         CustomerDTO result = instance.getCustomerByID(id);
         assertEquals(expResult.getFullName(), result.getFullName());
